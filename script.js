@@ -21,24 +21,32 @@ function agregarTarea() {
         listaTareas.appendChild(nuevaTarea);
         nuevaTareaInput.value = "";
     }
-}
+};
 
 // Función para marcar una tarea como completada
 function marcarCompletada(tarea) {
-    tarea.classList.toggle("completed");
-}
+    tarea.classList.toggle("completed")
+};
 
 // Agregar evento de clic a las tareas para marcarlas como completadas
-document.getElementById("listaTareas").addEventListener("click",
-    function(event) {
-        if (event.target.tagName === "LI") {
-            marcarCompletada(event.target);
-        }
-    }
-);
+
+
+const listaTareas = document.getElementById("listaTareas");
+
+if (listaTareas) {
+    listaTareas.addEventListener("click",
+        function(event) {
+            if (event.target.tagName === "LI") {
+                marcarCompletada(event.target);
+            }
+        })
+};
 
 // Agregar evento de clic al botón "Agregar"
-document.getElementById("agregar").addEventListener("click", agregarTarea);
+const agregar = document.getElementById("agregar");
+if (agregar) {
+    agregar.addEventListener("click", agregarTarea)
+};
 
 // Función para mostrar tareas completadas
 function mostrarCompletadas() {
@@ -49,8 +57,8 @@ function mostrarCompletadas() {
         } else {
             tarea.style.display = "none";
         }
-    });
-}
+    })
+};
 
 // Función para mostrar tareas pendientes
 function mostrarPendientes() {
@@ -61,10 +69,16 @@ function mostrarPendientes() {
         } else {
             tarea.style.display = "none";
         }
-    });
-}
+    })
+};
 
 // Agregar evento de clic al botón "Mostrar Completadas"
-document.getElementById("mostrarCompletadas").addEventListener("click", mostrarCompletadas);
+const mostrarCompletadasBtn = document.getElementById("mostrarCompletadas");
+if (mostrarCompletadasBtn) {
+    mostrarCompletadasBtn.addEventListener("click", mostrarCompletadas)
+};
 // Agregar evento de clic al botón "Mostrar Pendientes"
-document.getElementById("mostrarPendientes").addEventListener("click", mostrarPendientes);
+const mostrarPendientesBtn = document.getElementById("mostrarPendientes");
+if (mostrarPendientesBtn) {
+    mostrarPendientesBtn.addEventListener("click", mostrarPendientes)
+};
